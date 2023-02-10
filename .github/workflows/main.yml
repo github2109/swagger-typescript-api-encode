@@ -30,10 +30,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install npm packages
-        run: npm ci --ignore-scripts
+        run: yarn install --immutable
 
       - name: Run the tests
-        run: npm run test-all
+        run: yarn test-all
 
   dependabot-auto-approve:
     name: Dependabot auto-approve
