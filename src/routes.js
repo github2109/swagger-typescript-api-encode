@@ -375,7 +375,7 @@ const parseRoutes = ({ paths, security: globalSecurity }, parsedSchemas, compone
             : []),
         ]);
 
-        const path = route.replace(/{/g, "${");
+        const path = route.replace(/{/g, "${encodeURIComponent(").replace(/}/g, ")}");
         const hasQuery = !!queryParams.length;
         const bodyArg = requestBody ? bodyParamName : "null";
         const upperCaseMethod = _.upperCase(method);
